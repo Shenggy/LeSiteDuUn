@@ -46,8 +46,15 @@ class MessagePrive
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumn(name="dest_id", referencedColumnName="id")
      */
+
     private $destinataire;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(name="exp_id", referencedColumnName="id")
+     */
+
+    private $expediteur;
     /**
      * Get id
      *
@@ -129,5 +136,39 @@ class MessagePrive
     {
         return $this->dateMessaPrive;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDestinataire()
+    {
+        return $this->destinataire;
+    }
+
+    /**
+     * @param mixed $destinataire
+     */
+    public function setDestinataire($destinataire)
+    {
+        $this->destinataire = $destinataire;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getExpediteur()
+    {
+        return $this->expediteur;
+    }
+
+    /**
+     * @param mixed $expediteur
+     */
+    public function setExpediteur($expediteur)
+    {
+        $this->expediteur = $expediteur;
+    }
+
+
 }
 

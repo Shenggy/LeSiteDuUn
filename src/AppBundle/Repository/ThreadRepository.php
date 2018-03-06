@@ -1,7 +1,7 @@
 <?php
 
 namespace AppBundle\Repository;
-
+use Doctrine\ORM\Tools\Pagination\Paginator;
 /**
  * ThreadRepository
  *
@@ -10,4 +10,14 @@ namespace AppBundle\Repository;
  */
 class ThreadRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAll($first_result = 1, $max_results = 12)
+    {
+        $qb = $this->createQueryBuilder('thread');
+        $qb ->select('thread')
+            ->setFirstResult(($first_result-1)*$max_results)
+            ->setMaxResults($max_results)
+            ->orderBy('thread.nomScientifique', 'ASC');
+
+        return new Paginator($qb);
+    }
 }
