@@ -48,8 +48,6 @@ class Message
     private $thread;
 
 
-
-
     /**
      * Get id
      *
@@ -106,6 +104,38 @@ class Message
     public function getDateMessage()
     {
         return $this->dateMessage;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getThread()
+    {
+        return $this->thread;
+    }
+
+    /**
+     * @param mixed $thread
+     */
+    public function setThread($thread)
+    {
+        $this->thread = $thread;
     }
 }
 
