@@ -36,6 +36,13 @@ class Thread
     private $dateCreation;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateModification", type="datetimetz")
+     */
+    private $dateModification;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="Etat", type="string", length=255)
@@ -67,6 +74,13 @@ class Thread
      *
      * @return int
      */
+
+    public function __construct() {
+        $this->dateCreation = new \DateTime();
+        $this->dateModification = new \DateTime();
+        $this->nbVues = 0;
+    }
+
     public function getId()
     {
         return $this->id;
@@ -118,6 +132,30 @@ class Thread
     public function getDateCreation()
     {
         return $this->dateCreation;
+    }
+
+    /**
+     * Set dateModification
+     *
+     * @param \DateTime $dateCreation
+     *
+     * @return Thread
+     */
+    public function setDateModification($dateModification)
+    {
+        $this->dateModification = $dateModification;
+
+        return $this;
+    }
+
+    /**
+     * Get dateModification
+     *
+     * @return \DateTime
+     */
+    public function getDateModification()
+    {
+        return $this->dateModification;
     }
 
     /**
