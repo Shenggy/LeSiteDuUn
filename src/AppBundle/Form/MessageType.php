@@ -13,10 +13,7 @@ class MessageType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('contenu')
-                ->add('user')
-                ->add('thread')
-        ;
+        $builder->add('contenu')->add('user');
     }
     /**
      * {@inheritdoc}
