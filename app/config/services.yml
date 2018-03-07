@@ -34,9 +34,23 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
-    admin.category:
+    admin.user:
             class: AppBundle\Admin\UserAdmin
             arguments: [~, AppBundle\Entity\User, ~]
             tags:
                 - { name: sonata.admin, manager_type: orm, label: 'Utilisateurs', group: Utilisateurs }
             public : true
+
+    admin.thread:
+            class: AppBundle\Admin\ThreadAdmin
+            arguments: [~, AppBundle\Entity\Thread, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm, label: 'Sujets créés', group: Sujet }
+            public : true
+
+    admin.message:
+                class: AppBundle\Admin\MessageAdmin
+                arguments: [~, AppBundle\Entity\Message, ~]
+                tags:
+                    - { name: sonata.admin, manager_type: orm, label: 'Messages', group: Sujet }
+                public : true
