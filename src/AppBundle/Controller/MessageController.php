@@ -2,10 +2,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Message;
-<<<<<<< HEAD
-=======
 use AppBundle\Entity\Thread;
->>>>>>> 892de3310e7d01867a4b9f0276fa8c1e8674c47d
 use AppBundle\Form\MessageType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
