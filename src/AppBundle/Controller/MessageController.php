@@ -19,9 +19,18 @@ class MessageController extends Controller {
     *
     */
 
-    public function addMessage() {
-        $thread = new Message();
-        $form = $this->createForm(MessageType::class, $thread);
+    public function addMessage(Thread $threadID, Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(MessageType::class);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $message = new Message();
+            $message = $form->getData();
+            $message->setThread($threadID);
+            $em->persist($message);
+            $em->flush();
+            return $this->redirectToRoute('getMessagesThread', array('threadID'=>$threadID->getId()));
+        }
         $formView = $form->createView(); //On crée la vue
         return $this->render('messageAdd.html.twig', array('form'=>$formView)); //On l'affiche
     }

@@ -47,9 +47,8 @@ class Message
      */
     private $thread;
 
-    public function _construct($threadGet) {
+    public function __construct() {
         $this->dateMessage = new \DateTime();
-        $this->thread=$threadGet;
     }
 
     /**
