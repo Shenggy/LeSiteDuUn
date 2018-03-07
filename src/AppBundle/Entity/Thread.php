@@ -77,7 +77,7 @@ class Thread
 
     public function __construct() {
         $this->dateCreation = new \DateTime();
-        $this->dateModification = new \DateTime();
+        $this->dateModification = $this->dateCreation;
         $this->nbVues = 0;
     }
 

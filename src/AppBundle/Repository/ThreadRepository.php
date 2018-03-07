@@ -15,8 +15,7 @@ class ThreadRepository extends \Doctrine\ORM\EntityRepository
         $qb = $this->createQueryBuilder('thread');
         $qb ->select('thread')
             ->setFirstResult(($first_result-1)*$max_results)
-            ->setMaxResults($max_results)
-            ->orderBy('thread.nomScientifique', 'ASC');
+            ->setMaxResults($max_results);
 
         return new Paginator($qb);
     }
