@@ -1,7 +1,8 @@
 {% extends "base.html.twig" %}
 
 
-{% block titleHead %}Discussion{% endblock %}
+
+{% block titleHead %}{{ messages[0].thread.nomThread}}{% endblock %}
 
 {% block body %}
     <table class="table table-inverse">
@@ -10,12 +11,14 @@
             <th class="column2">Message</th>
             <th class="column3">Date du post</th>
         </tr>
-        {% for thread in threads %}
+        {% for message in messages %}
             <tr>
-                <td class="column1">{#<a href="{{ path('findMessageByThread',{ 'id': thread.id }) }}">#}{{ thread.nomThread }}{#</a>#}</td>
-                <td class="column2">{{ thread.user.username }}</td>
-                <td class="column3">{{ thread.dateModification |date("d/m/Y") }}</td>
+                <td class="column1">{{ message.id }}</td>
+                <td class="column2">{{ message.contenu }}</td>
+                <td class="column3">{{ message.dateMessage |date("d/m/Y") }}</td>
+                <td class="column4">{{ message.user.username }}</td>
             </tr>
         {% endfor %}
     </table>
 {% endblock %}
+

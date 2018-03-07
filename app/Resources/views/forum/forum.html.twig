@@ -15,7 +15,7 @@
         </tr>
         {% for thread in threads %}
         <tr>
-            <td class="column1">{#<a href="{{ path('findMessageByThread',{ 'id': thread.id }) }}">#}{{ thread.nomThread }}{#</a>#}</td>
+            <td class="column1"><a href="{{ path('getMessagesThread',{ 'threadID': thread.id }) }}">{{ thread.nomThread }}</a></td>
             <td class="column2">{{ thread.user.username }}</td>
             <td class="column3">{{ thread.dateModification |date("d/m/Y") }}</td>
             <td class="column4">{{ thread.etat }}</td>
