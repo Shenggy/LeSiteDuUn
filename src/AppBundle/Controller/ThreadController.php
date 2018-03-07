@@ -40,20 +40,4 @@ class ThreadController extends Controller {
         return $this->render('forum/forum.html.twig', array('threads' => $threads));
     }
 
-
-     /**
-     * @Route("/thread/{id}", name="thread", requirements={"id"="\d+"})
-     */
-    public function getThread($id) {
-        $thread = $this->getDoctrine()
-            ->getRepository('AppBundle:Thread')
-            ->find($id);
-        if(!$thread) {
-            //Pas de thread (exception?)
-            return new Response("Le sujet n'existe pas");
-        }
-        else {
-            return new Response($thread->getNomThread());
-        }
-    }
 }
