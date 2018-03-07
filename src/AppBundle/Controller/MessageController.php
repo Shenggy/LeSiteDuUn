@@ -2,23 +2,43 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Message;
+<<<<<<< HEAD
+=======
+use AppBundle\Entity\Thread;
+>>>>>>> 892de3310e7d01867a4b9f0276fa8c1e8674c47d
 use AppBundle\Form\MessageType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\HttpFoundation\Response;
 
 class MessageController extends Controller {
 
     /**
-     * @Route("/addMessage", name="addMessage")
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
+    * @Route("/thread/{threadID}/addMessage", name="addMessage")
+    * @ParamConverter("thread", options={"mapping": {"threadID" : "id"}})
+    *
+    */
 
-    public function addAction() {
-        $thread = new Message();
-        $form = $this->createForm(MessageType::class, $thread);
+    public function addMessage() {
+        $message = new Message();
+        $form = $this->createForm(MessageType::class, $message);
         $formView = $form->createView(); //On crée la vue
         return $this->render('messageAdd.html.twig', array('form'=>$formView)); //On l'affiche
+    }
+
+    /**
+    * @Route("/thread/{threadID}/getAllMessagesFromThread", name="getAllMessagesFromThread")
+    * @ParamConverter("thread", options={"mapping": {"threadID" : "id"}})
+     */
+
+    public function getAllMessagesFromThread(Thread $threadId) {
+        //A modifier... cet affichage devrait se faire sur l'affichage d'un sujet (/thread)
+        $em = $this->container->get("doctrine.orm.default_entity_manager");
+        $entities = $em->getRepository(Message::class)->findBy([
+            "thread_id" => $threadId,
+        ]);
+        return new Response("pas maintenant");
     }
 }

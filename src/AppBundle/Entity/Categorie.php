@@ -30,13 +30,13 @@ class Categorie
 
     /**
      * One Category has Many Categories.
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Categorie", mappedBy="parent")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Categorie", mappedBy="parentCategorie")
      */
     private $subCategorie;
 
     /**
      * Many Categories have One Category.
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Categorie", inversedBy="children")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Categorie", inversedBy="subCategorie")
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      */
     private $parentCategorie;

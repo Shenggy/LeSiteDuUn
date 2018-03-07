@@ -47,6 +47,9 @@ class Message
      */
     private $thread;
 
+    public function _construct() {
+        $this->dateMessage = new \DateTime();
+    }
 
     /**
      * Get id
