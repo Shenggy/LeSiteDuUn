@@ -1,7 +1,7 @@
-{% extends "home/base.html.twig" %}
+{% extends "base.html.twig" %}
 
 
-{% block title %}Les sujets{% endblock %}
+{% block titleHead %}Les sujets{% endblock %}
 
 {% block body %}
     <table class="table table-inverse">
@@ -15,7 +15,7 @@
         </tr>
         {% for thread in threads %}
         <tr>
-            <td class="column1">{{ thread.nomThread }}</td>
+            <td class="column1">{#<a href="{{ path('findMessageByThread',{ 'id': thread.id }) }}">#}{{ thread.nomThread }}{#</a>#}</td>
             <td class="column2">{{ thread.user.username }}</td>
             <td class="column3">{{ thread.dateModification |date("d/m/Y") }}</td>
             <td class="column4">{{ thread.etat }}</td>
