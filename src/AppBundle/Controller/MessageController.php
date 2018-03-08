@@ -23,10 +23,12 @@ class MessageController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(MessageType::class);
         $form->handleRequest($request);
+        $user = $this->getUser();
         if($form->isSubmitted() && $form->isValid()) {
             $message = new Message();
             $message = $form->getData();
             $message->setThread($threadID);
+            $message->setUser($user);
             $em->persist($message);
             $em->flush();
             return $this->redirectToRoute('getMessagesThread', array('threadID'=>$threadID->getId()));

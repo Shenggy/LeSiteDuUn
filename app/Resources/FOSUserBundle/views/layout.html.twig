@@ -1,4 +1,4 @@
-{% extends is_granted('ROLE_USER') ? "forum/forum.html.twig"  : 'home/base.html.twig' %}
+{% extends is_granted('ROLE_USER') ? "forum/forum.html.twig"  : 'home/home.html.twig' %}
 
 {% block body %}
     {% block fos_user_content %}{% endblock %}
