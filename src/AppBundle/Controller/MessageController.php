@@ -28,6 +28,7 @@ class MessageController extends Controller {
             $message = new Message();
             $message = $form->getData();
             $message->setThread($threadID);
+            //TODO GERER ERREUR SI USER PAS CO
             $message->setUser($user);
             $em->persist($message);
             $em->flush();
