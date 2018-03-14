@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 class MessageController extends Controller {
 
     /**
-    * @Route("forum/thread/{threadID}/addMessage", name="addMessage")
+    * @Route("forum/{threadID}/addMessage", name="addMessage")
     * @ParamConverter("thread", options={"mapping": {"threadID" : "id"}})
     *
     */
@@ -39,7 +39,7 @@ class MessageController extends Controller {
     }
 
     /**
-     * @Route("forum/thread/{threadID/getMessages}", name="getMessagesThread")
+     * @Route("forum/{threadID}", name="getMessagesThread")
      * @ParamConverter("thread", options={"mapping": {"threadID" : "id"}})
      */
 
