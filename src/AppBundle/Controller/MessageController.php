@@ -39,7 +39,7 @@ class MessageController extends Controller {
     }
 
     /**
-     * @Route("forum/thread/{threadID/getMessages}", name="getMessagesThread")
+     * @Route("forum/thread/{threadID}/getMessages", name="getMessagesThread")
      * @ParamConverter("thread", options={"mapping": {"threadID" : "id"}})
      */
 
@@ -48,6 +48,6 @@ class MessageController extends Controller {
             ->getRepository('AppBundle:Message')->findBy([
                 "thread" => $threadID
             ]);
-        return $this->render("listeMessages.html.twig", array('messages' => $messages));
+        return $this->render("message/listeMessages.html.twig", ['messages' => $messages]);
     }
 }

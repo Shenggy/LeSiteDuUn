@@ -1,13 +1,19 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Ajout de message</title>
-</head>
-<body>
-{{ form_start(form) }}
-{{ form_widget(form) }}
-<button type="submit">Envoyer</button>
-{{ form_end(form) }}
-</body>
-</html>
+{% extends "base.html.twig" %}
+
+{% block titleHead %}Ajout de message{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(function() {
+            $('textarea.ckeditor').ckeditor();
+        });
+    </script>
+{% endblock %}
+{%  block body %}
+    <body>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Envoyer</button>
+    {{ form_end(form) }}
+    </body>
+{% endblock %}
