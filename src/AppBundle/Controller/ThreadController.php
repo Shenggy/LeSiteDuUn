@@ -11,14 +11,14 @@ use Symfony\Component\HttpFoundation\Response;
 class ThreadController extends Controller {
 
     /**
-     * @Route("forum/addThread", name="addThread")
+     * @Route("addThread", name="addThread")
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
 
     public function addThread() {
         $thread = new Thread();
-        $form = $this->createForm(ThreadType::class, $thread);
+        $form = $this->createForm(ThreadType::class);
         $formView = $form->createView(); //On crée la vue
         return $this->render('threadAdd.html.twig', array('form'=>$formView)); //On l'affiche
     }
