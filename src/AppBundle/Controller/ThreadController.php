@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ThreadController extends Controller {
 
     /**
-     * @Route("forum/addThread", name="addThread")
+     * @Route("/addThread", name="addThread")
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
