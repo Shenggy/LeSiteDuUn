@@ -63,7 +63,7 @@ class Thread
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Categorie")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Categorie")
      * @ORM\JoinColumn(name="categorie_id", referencedColumnName="id")
      */
     private $categorie;

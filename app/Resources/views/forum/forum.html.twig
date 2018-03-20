@@ -45,7 +45,7 @@
 
 {% block body %}
     
-    <a class="btn btn-primary " href="#">Ajouter un nouveau sujet </a>
+    <a class="btn btn-primary " href="{{ path("addThread") }}">Ajouter un nouveau sujet </a>
 
     <table class="table table-inverse">
         <tr class="table100-head">
@@ -59,7 +59,7 @@
         {% for thread in threads %}
         <tr>
             <td class="column1"><a href="{{ path('getMessagesThread',{ 'threadID': thread.id }) }}">{{ thread.nomThread }}</a></td>
-            <td class="column2">{{ thread.user.username }}</td>
+            <td class="column2">{{ thread.user }}</td>
             <td class="column3">{{ thread.dateModification |date("d/m/Y") }}</td>
             <td class="column4">{{ thread.etat }}</td>
             <td class="column5">{{ thread.nbVues}}</td>

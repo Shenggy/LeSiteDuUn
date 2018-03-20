@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,8 +16,12 @@ class ThreadType extends AbstractType
     {
         $builder->add('nomThread')
                 ->add('etat')
-                ->add('user')
-                ->add('categorie')
+                ->add('categorie', EntityType::class,array(
+                    'class'=> 'AppBundle:Categorie',
+                    'choice_label'=> 'nom',
+                    'required'=>false,
+                    'multiple'=>true
+                ))
         ;
     }
     /**
