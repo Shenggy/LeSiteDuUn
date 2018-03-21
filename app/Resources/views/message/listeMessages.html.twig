@@ -24,6 +24,9 @@
                         </li>
                         {% if is_granted('ROLE_USER') %}
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ path("fos_user_profile_edit" ) }}">Profil</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ path("fos_user_security_logout" ) }}">Se déconnecter</a>
                             </li>
                         {% else %}
@@ -60,5 +63,6 @@
 
             </tr>
         {% endfor %}
+        <a class="btn btn-primary" href="{{ path('addMessage', {'threadID': messages[0].thread.id}) }}">Ajouter un nouveau message </a>
     </table>
 {% endblock %}
