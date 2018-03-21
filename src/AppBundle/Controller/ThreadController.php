@@ -62,9 +62,6 @@ class ThreadController extends Controller {
 
     public function findAll()
     {
-        $entityManager = $this->getDoctrine()->getManager();
-        $threads = $entityManager->getRepository(Thread::class)->findAll();
-
         $repository = $this->getDoctrine()->getRepository(Thread::class);
         $threads = $repository->findAll();
 
