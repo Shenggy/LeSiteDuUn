@@ -55,7 +55,7 @@
         {% for message in messages %}
             <tr>
                <td width="25%" class="column1">{{ message.user.username }}</td>
-                <td class="column2">{{ message.contenu }}</td>
+                <td class="column2">{{ message.contenu | raw }}</td>
                 <td class="column3">{{ message.dateMessage |date("d/m/Y") }}</td>
 
             </tr>

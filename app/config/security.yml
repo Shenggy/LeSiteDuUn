@@ -45,3 +45,4 @@ security:
             - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/admin, roles: ROLE_SUPER_ADMIN }
             - { path: ^/profile, roles: ROLE_USER }
+            - { path: ^/addThread, roles: ROLE_USER }
