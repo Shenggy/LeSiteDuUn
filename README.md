@@ -1,4 +1,4 @@
-Le site du un
+LeSiteDuUn
 ========================
 
 lesisteduun.fr est un forum communautaire opensource axé sur l'entraide entre développeurs. Il vous permettra de partager vos connaissances et d'en apprendre toujours plus sur le développement de sites web et de logiciels.
